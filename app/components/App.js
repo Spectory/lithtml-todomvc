@@ -7,8 +7,8 @@ export function App (state) {
   return html`
     <section class='todoapp'>
       ${Header()}
-      ${Main(state.todos)}
-      ${Footer(state.todos.length)}
+      ${Main(state.todos, state.visibilityFilter)}
+      ${Footer(state.todos.length, state.visibilityFilter)}
     </section>
   `
 }
