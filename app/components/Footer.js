@@ -1,12 +1,25 @@
 import { html } from 'lit-html'
-import { VisibilityFilters } from '../store/actions'
+import { clearCompleted, VisibilityFilters } from '../store/actions'
+import store from '../store/store'
 
-export function Footer (itemLeftCount, visibilityFilter) {
+function onClickClearCompleted () {
+  store.dispatch(clearCompleted())
+}
+
+function itemLeftCount (todos) {
+  return todos.length
+}
+
+function itemCompletedCount (todos) {
+  return todos.filter((todo) => todo.completed === true).length
+}
+
+export function Footer (todos, visibilityFilter) {
   return html`
     <footer class="footer">
       <span class="todo-count">
-        <strong>${itemLeftCount}</strong>
-        item${itemLeftCount === 1 ? '' : 's'} left
+        <strong>${itemLeftCount(todos)}</strong>
+        item${itemLeftCount(todos) === 1 ? '' : 's'} left
       </span>
       <ul class="filters">
         <li>
@@ -25,7 +38,11 @@ export function Footer (itemLeftCount, visibilityFilter) {
           </a>
         </li>
       </ul>
-      <button class="clear-completed">Clear completed</button>
+      ${itemCompletedCount(todos) > 0 ? html`
+      <button class="clear-completed"
+              @click="${onClickClearCompleted}">Clear completed
+      </button>
+      ` : html``}
    </footer>
  `
 }

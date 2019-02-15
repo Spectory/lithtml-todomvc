@@ -8,7 +8,7 @@ export function App (state) {
     <section class='todoapp'>
       ${Header()}
       ${Main(state.todos, state.visibilityFilter)}
-      ${Footer(state.todos.length, state.visibilityFilter)}
+      ${Footer(state.todos, state.visibilityFilter)}
     </section>
   `
 }

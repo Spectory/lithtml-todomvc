@@ -32,15 +32,23 @@ store.subscribe(() => render( App(store.getState()), document.body) )
 lit-html does not handle component life-cycles and does not call your
 code. You call the render function and lit-html renders the
 component efficiently. A very simple (although simplistic) implementation
-of lit-html can be achieved in 10 lines of code relying on ES2015
-template strings. See for instance [this blog
+of lit-html can be achieved in 10 lines of code template strings.
+See for instance [this blog
 post](http://2ality.com/2015/01/template-strings-html.html).
 
 Similarly Redux can be thought of as global state + PubSub +
 explicit state transitions. The Redux API is just an implementation
-detail. Redux is not aware of components and does not call your code
-other than providing a single callback notifying of state changes.
+detail and can easily be swapped out. Redux is not aware of components
+and does not call your code other than providing a single callback
+notifying of state changes.
 
+Director is a simple router. It does not link to UI state in any way,
+it's just a library to listens to location changes, parses the path
+and calls your code in response to these patterns (applying pushstate
+of course).
+
+By relying on such libs that have small APIs, simple implementations
+and hardly any runtime we can easily 
 ## Features
 
 * Client-side routing via [director](https://github.com/flatiron/director)

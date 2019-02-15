@@ -3,6 +3,7 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   DELETE_TODO,
+  CLEAR_COMPLETED,
   SET_VISIBILITY_FILTER,
   VisibilityFilters
 } from './actions'
@@ -36,6 +37,8 @@ function todos (state = [], action) {
       })
     case DELETE_TODO:
       return state.filter((_, index) => index !== action.index)
+    case CLEAR_COMPLETED:
+      return state.filter((todo) => todo.completed !== true)
     default:
       return state
   }
