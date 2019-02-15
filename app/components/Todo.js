@@ -1,6 +1,6 @@
 import { html } from 'lit-html'
 import { toggleTodo, deleteTodo } from '../store/actions'
-import store from '../store/store'
+import { store } from '../store/store'
 
 function onClickTodo (e) {
   const index = Number(e.srcElement.getAttribute('data-index'))

@@ -1,6 +1,6 @@
 import { html } from 'lit-html'
 import { addTodo } from '../store/actions'
-import store from '../store/store'
+import { store } from '../store/store'
 
 function onKeyUp (e) {
   if (e.keyCode === 13) {

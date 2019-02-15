@@ -1,7 +1,7 @@
 import { App } from './components/App'
 import { render } from 'lit-html'
 import { Router } from 'director/build/director'
-import store from './store/store'
+import { store } from './store/store'
 import { setVisibilityFilter, VisibilityFilters } from './store/actions'
 
 const router = new Router();

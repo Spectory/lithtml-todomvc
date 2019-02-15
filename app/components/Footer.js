@@ -1,17 +1,9 @@
 import { html } from 'lit-html'
 import { clearCompleted, VisibilityFilters } from '../store/actions'
-import store from '../store/store'
+import { store, itemCompletedCount, itemLeftCount } from '../store/store'
 
 function onClickClearCompleted () {
   store.dispatch(clearCompleted())
-}
-
-function itemLeftCount (todos) {
-  return todos.length
-}
-
-function itemCompletedCount (todos) {
-  return todos.filter((todo) => todo.completed === true).length
 }
 
 export function Footer (todos, visibilityFilter) {
