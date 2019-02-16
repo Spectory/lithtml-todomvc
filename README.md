@@ -49,7 +49,7 @@ of course).
 
 LocalStorage is managed in a custom middleware. There's no need for
 fancy Redux plugins, the entire middleware is a few lines of
-code. This again reduces 3rd API surface.
+code. This again reduces 3rd party API surface.
 
 By relying on completely decoupled libs that have small APIs, simple implementations
 and hardly any runtime we mitigate risk of breaking changes. The
