@@ -2,9 +2,11 @@ import { App } from './components/App'
 import { render } from 'lit-html'
 import { Router } from 'director/build/director'
 import { store } from './store/store'
-import { setVisibilityFilter, VisibilityFilters } from './store/actions'
+import { setVisibilityFilter, VisibilityFilters, init } from './store/actions'
 
-const router = new Router();
+const router = new Router()
+
+store.dispatch(init())
 
 router.on('all', () => store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ALL)))
 router.on('active', () => store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE)))

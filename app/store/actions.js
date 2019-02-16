@@ -1,3 +1,4 @@
+export const INIT = 'INIT'
 export const ADD_TODO = 'ADD_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const DELETE_TODO = 'DELETE_TODO'
@@ -29,6 +30,10 @@ export function clearCompleted () {
 
 export function toggleAll () {
   return { type: TOGGLE_ALL }
+}
+
+export function init () {
+  return { type: INIT }
 }
 
 export function setVisibilityFilter (filter) {
