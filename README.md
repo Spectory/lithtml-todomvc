@@ -53,7 +53,9 @@ code. This again reduces 3rd API surface.
 
 By relying on completely decoupled libs that have small APIs, simple implementations
 and hardly any runtime we mitigate risk of breaking changes. The
-result is still rather feature rich, performant and easy on the eyes.
+result is still rather feature rich, performant and easy on the
+eyes. And oh, of course it also has the benefit of a small
+package. This app for instance is only about 13kb minified and gzipped.
 
 ## Features
 
