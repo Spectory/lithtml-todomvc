@@ -8,6 +8,7 @@ import {
   SET_VISIBILITY_FILTER,
   VisibilityFilters
 } from './actions'
+import { areAllItemsCompleted } from './util'
 const { SHOW_ALL } = VisibilityFilters
 
 function visibilityFilter (state = SHOW_ALL, action) {
@@ -41,7 +42,7 @@ function todos (state = [], action) {
     case CLEAR_COMPLETED:
       return state.filter((todo) => todo.completed !== true)
     case TOGGLE_ALL:
-      if (state.filter((todo) => todo.completed === true).length === state.length) {
+      if (areAllItemsCompleted(state)) {
         return state.map((todo) => { return { ...todo, completed: false } })
       }
       return state.map((todo) => { return { ...todo, completed: true } })

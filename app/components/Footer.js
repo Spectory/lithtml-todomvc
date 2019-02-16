@@ -1,6 +1,7 @@
 import { html } from 'lit-html'
 import { clearCompleted, VisibilityFilters } from '../store/actions'
-import { store, itemCompletedCount, itemLeftCount } from '../store/store'
+import { store } from '../store/store'
+import { itemCompletedCount, itemLeftCount } from '../store/util'
 
 function onClickClearCompleted () {
   store.dispatch(clearCompleted())

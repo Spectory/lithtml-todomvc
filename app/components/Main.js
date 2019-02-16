@@ -1,7 +1,8 @@
 import { html } from 'lit-html'
 import { Todo } from './Todo'
 import { VisibilityFilters, toggleAll } from '../store/actions'
-import { store, itemCompletedCount, itemLeftCount } from '../store/store'
+import { store } from '../store/store'
+import { areAllItemsCompleted } from '../store/util'
 
 function todosByVisibilityFilter (todos, visibilityFilter) {
   switch (visibilityFilter) {
@@ -12,10 +13,6 @@ function todosByVisibilityFilter (todos, visibilityFilter) {
     case VisibilityFilters.SHOW_COMPLETED:
       return todos.filter((todo) => todo.completed === true)
   }
-}
-
-function allItemsChecked(todos) {
-  return itemCompletedCount(todos) === itemLeftCount(todos) && todos.length > 0 
 }
 
 function onClickToggleAll () {
@@ -29,7 +26,7 @@ export function Main (todos, visibilityFilter) {
     <section class="main">
       <input class="toggle-all"
              id="toggle-all"
-             .checked=${allItemsChecked(todos)}
+             .checked=${areAllItemsCompleted(todos)}
              @click=${onClickToggleAll}
              type="checkbox">
       <label for="toggle-all">Mark all as complete</label>
